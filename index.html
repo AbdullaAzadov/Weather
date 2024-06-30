@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода</title>
+
+    <style>
+        body{
+            background-color: darkgray;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            width: 75%;
+            height: 36rem;
+            margin: 4rem auto;
+            border: 2px solid darkcyan;
+            border-radius: 2rem;
+        }
+        .container-img{
+            border-radius: 2rem;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            background-image: url('assets/bg.jpg');
+            filter: blur(4px);
+        }
+        .container-content{
+            position: relative;
+            width: 90%;
+            height: 80%;
+            bottom: 90%;
+            left: 5%;
+            z-index: 1;
+        }
+
+        .main-info{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .schedule{
+            width: 100%;
+            height: 6.5rem;
+            display: flex;
+            justify-content: end;
+            gap: 5%;
+        }
+        .schedule-element{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+
+            padding: 4px;
+            width: 8%;
+            height: 100%;
+            border: 1px dashed aliceblue;
+            background-color: rgba(240, 248, 255, 0.25);
+            border-radius: 20%;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .schedule-element:hover{
+            background-color: rgba(240, 248, 255, 0.5);
+        }
+
+        .current{
+            border: 2px solid rgb(236, 110, 76);
+            background-color: rgba(240, 248, 255, 0.5);
+        }
+
+        .schedule-element > p{
+            margin-top: 5%;
+            text-shadow: 0 0 4px black;
+        }
+        .schedule-element > img{
+            width: 100%;
+            margin-top: -40%;
+            margin-bottom: -25%;
+        }
+        
+
+
+        .days{
+            width: 100%;
+            height: 6.5rem;
+            margin-top: 4rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .day{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            width: 7.5%;
+            height: 75%;
+            border: 1px dashed aliceblue;
+            background-color: rgba(240, 248, 255, 0.25);
+            border-radius: 50%;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        .day > p{
+            margin-top: 15%;
+            user-select: none;
+        }
+        .day > h3{
+            margin-top: -25%;
+            font-size: 1.75rem;
+            text-shadow: 0 1px 4px black;
+            user-select: none;
+        }
+
+        .day:hover{
+            border: 2px solid rgb(236, 110, 76);
+        }
+
+        .selected{
+            background-color: rgb(236, 110, 76);
+            border: 2px solid rgb(236, 110, 76);
+        }
+
+
+        h1{
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+            text-shadow: 2px 2px 8px black;
+            font-size: 2.5rem;
+        }
+        h2{
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+            text-shadow: 2px 2px 8px black;
+            font-size: 2.25rem;
+        }
+
+        h3{
+            font-family: sans-serif;
+            color: white;
+            text-shadow: 2px 2px 8px black;
+            font-size: 2rem;
+        }
+        p{
+            font-family: sans-serif;
+            color: whitesmoke;
+            text-shadow: 1px 1px 4px black;
+            font-size: 1.25rem;
+        }
+        
+        #target-icon{
+            margin-left: -10%
+        }
+        #target-weather{
+            display: flex; 
+            margin-top: -10%
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="container-img"></div>
+        <div class="container-content">
+            <div class="main-info">
+                
+                <div id="left-block">
+                    <h1 id="target-city">Алматы</h1>
+                    <div id="target-weather">
+                        <img id="target-icon" src="https://openweathermap.org/img/wn/10d@2x.png">
+                        <h3 id="target-temp">+13° С</h3>
+                    </div>
+                    <p id="target-desc" style="margin-top: -5%;">Дождливо</p>
+
+                </div>
+                <div id="right-block">
+                    <h2 id="target-date">Сегодня</h2>
+                    <p id="target-date-desc">
+                        Понедельник<br>
+                        Влажность: 80%<br> 
+                        Ветер:  10 м/с
+                    </p>
+
+                </div>
+            </div>
+
+            <hr style="margin: 1.5rem 0 0 0 1rem;">
+            
+            <div class="schedule">
+            </div>
+
+            <div class="days">
+            </div>
+            
+        </p></div>
+    </div>
+
+
+
+    <input id="input" type="text" value="Almaty">
+    <button id="send">send</button>
+
+
+    <script src="main.js"></script>
+
+</body>
+</html>
